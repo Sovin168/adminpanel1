@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khmer E-Learning Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nokora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --header-color: #2c3e50; /* Darker blue-grey for header */
+            --card-text-color: #ffffff;
+            --bg-light-blue: #e0f2f7; /* Lighter blue for background */
+            --bg-pattern-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white for pattern */
+            --orange-gradient-start: #FF7F50; /* Coral */
+            --orange-gradient-end: #FF6347;   /* Tomato */
+            --blue-gradient-start: #6495ED;    /* CornflowerBlue */
+            --blue-gradient-end: #4682B4;      /* SteelBlue */
+            --yellow-gradient-start: #FFD700;  /* Gold */
+            --yellow-gradient-end: #DAA520;    /* Goldenrod */
+            --green-gradient-start: #32CD32;   /* LimeGreen */
+            --green-gradient-end: #228B22;     /* ForestGreen */
+        }
+
+        body {
+            font-family: 'Nokora', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            background: var(--bg-light-blue); /* Light blue background */
+            background-image:
+                radial-gradient(circle at 10% 20%, var(--bg-pattern-color) 0%, transparent 10%),
+                radial-gradient(circle at 90% 80%, var(--bg-pattern-color) 0%, transparent 10%),
+                linear-gradient(to bottom right, #f8f9fa, var(--bg-light-blue)); /* Subtle gradients/shapes */
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            padding: 40px 20px; /* More padding at top */
+            box-sizing: border-box;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        .header {
+            font-size: 3em; /* Slightly larger header */
+            font-weight: 700;
+            color: var(--header-color);
+            margin-bottom: 60px; /* More space below header */
+            position: relative;
+            padding-right: 25px; /* Space for the vertical line */
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 4px; /* Thicker line */
+            height: 90%; /* Taller line */
+            background-color: var(--header-color);
+            border-radius: 2px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+            gap: 40px; /* Larger gap */
+            max-width: 1000px; /* Wider container */
+            width: 100%;
+            padding: 20px;
+            animation: fadeIn 1s ease-out; /* Fade in animation */
+        }
+
+        .card {
+            background-color: #fff; /* Base for subtle glass effect */
+            border-radius: 15px; /* More rounded corners */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px; /* More padding */
+            text-align: center;
+            font-size: 2em; /* Larger text */
+            font-weight: 700; /* Bolder text */
+            color: var(--card-text-color);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative; /* For icon positioning */
+            overflow: hidden; /* Ensure anything overflowing is hidden */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle white border */
+            backdrop-filter: blur(5px); /* Glass effect */
+            -webkit-backdrop-filter: blur(5px); /* For Safari */
+        }
+
+        .card::before { /* Subtle background pattern within card */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(255,255,255,0.1) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.1) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.1) 75%);
+            background-size: 20px 20px;
+            opacity: 0.2;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.03); /* More pronounced lift and slight scale */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Specific card colors with more vibrant gradients */
+        .card.orange {
+            background: linear-gradient(135deg, var(--orange-gradient-start), var(--orange-gradient-end));
+        }
+
+        .card.blue {
+            background: linear-gradient(135deg, var(--blue-gradient-start), var(--blue-gradient-end));
+        }
+
+        .card.yellow {
+            background: linear-gradient(135deg, var(--yellow-gradient-start), var(--yellow-gradient-end));
+        }
+
+        .card.green {
+            background: linear-gradient(135deg, var(--green-gradient-start), var(--green-gradient-end));
+        }
+
+        .card .icon {
+            font-size: 4em; /* Larger icons */
+            margin-bottom: 20px; /* More space below icon */
+            color: rgba(255, 255, 255, 0.9); /* Brighter white for icons */
+            filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.2)); /* Subtle icon shadow */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header {
+                font-size: 2.2em;
+                margin-bottom: 40px;
+            }
+            .grid-container {
+                grid-template-columns: 1fr; /* Single column on smaller screens */
+                padding: 10px;
+            }
+            .card {
+                font-size: 1.5em;
+                padding: 30px 15px;
+            }
+            .card .icon {
+                font-size: 3em;
+                margin-bottom: 15px;
+            }
+            body {
+                padding: 20px 10px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        Khmer E-Learning
+    </div>
+
+<div class="grid-container">
+        <a href="AminPanel for Book/index.html" class="card orange">
+            <i class="fas fa-book-open icon"></i>
+            សៀវភៅ
+        </a>
+
+        <a href="AminPanel for Testing/index.html" class="card blue">
+            <i class="fas fa-chalkboard-teacher icon"></i>
+            ឯកសារការបង្រៀន
+        </a>
+
+        <a href="AminPanel for Banner/index.html" class="card yellow">
+            <i class="fas fa-user-graduate icon"></i>
+            សមាជិកសិក្សា
+        </a>
+
+        <a href="AminPanel for User's Balance/index.html" class="card green">
+            <i class="fas fa-file-invoice-dollar icon"></i>
+            គណនី
+        </a>
+    </div>
+</body>
+</html>
