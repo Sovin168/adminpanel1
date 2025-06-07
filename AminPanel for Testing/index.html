@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details Form</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Form Section -->
+        <form action="" id="bookForm">
+               <div class="inputBox">
+                <label for="typeodoc">Doc Type</label>
+                <select id="typedoc">
+                    <option value="" disabled selected>Choose type of document</option>
+                    <option value="វិញ្ញាសា">វិញ្ញាសា</option>
+                    <option value="លំហាត់">លំហាត់</option>
+                </select>
+            </div> 
+            <div class="inputBox">
+                <label for="docnumber">Doc Number</label>
+                <input type="docnumber" id="docnumber" placeholder="Put document number" >
+            </div>
+
+             <!-- Sub-Category Dropdown -->
+             <div class="inputBox">
+                <label for="subject">Subject</label>
+                <select id="subject" >
+                    <option value="" disabled selected>Choose a subject</option>
+                    <option value="គណិតវិទ្យា">គណិតវិទ្យា</option>
+                    <option value="រូបវិទ្យា">រូបវិទ្យា</option>
+                    <option value="គីមីវិទ្យា">គីមីវិទ្យា</option>
+                    <option value="ជីវវិទ្យា">ជីវវិទ្យា</option>
+                    <option value="អក្សរសាស្ត្រ">អក្សរសាស្ត្រ</option>
+                    <option value="អង់គ្លេស">អង់គ្លេស</option>
+                    <option value="ផែនដី-បរិស្ថាន">ផែនដី-បរិស្ថាន</option>
+                    <option value="ប្រវត្តិវិទ្យា">ប្រវត្តិវិទ្យា</option>
+                    <option value="ភូមិវិទ្យា">ភូមិវិទ្យា</option>
+                    <option value="សីលធម៍-ពលរដ្ឋ">សីលធម៍-ពលរដ្ឋ</option>
+                </select>
+            </div>
+            
+
+            <!-- Sub-Category Dropdown -->
+            <div class="inputBox">
+                <label for="category">Category</label>
+                <select id="category" >
+                    <option value="" disabled selected>Choose a Category</option>
+                    <option value="ថ្នាក់ទី១២">ថ្នាក់ទី១២</option>
+                    <option value="ថ្នាក់ទី១១">ថ្នាក់ទី១១</option>
+                    <option value="ថ្នាក់ទី១០">ថ្នាក់ទី១០</option>
+                    <option value="ថ្នាក់ទី០៩">ថ្នាក់ទី០៩</option>
+                </select>
+            </div>
+
+              
+            <!-- Book Description -->
+            <div class="inputBox">
+                <label for="description">Description</label>
+                <textarea id="description" rows="5" placeholder="Enter Descrption Examination" ></textarea>
+            </div>
+
+            <!-- Book Publication Date -->
+            <div class="inputBox">
+                <label for="Start Date">Start Date</label>
+                <input type="date" id="startd" >
+            </div>
+            
+            <div class="inputBox">
+                <label for="Start Time">Start Time</label>
+                <input type="time" id="sartt" >
+            </div>
+            
+            <!-- Book Publication Date -->
+            <div class="inputBox">
+                <label for="Stop Date">Stop Date</label>
+                <input type="date" id="stopd" >
+            </div>
+
+            <div class="inputBox">
+                <label for="Stop Time">Stop Time</label>
+                <input type="time" id="stopt" >
+            </div>
+            <div class="inputBox">
+                <label for="question">Question</label>
+                <input type="file" id="imageURL" accept="image/*,application/pdf" multiple>
+            </div>
+            <div class="inputBox">
+                <label for="anwser">Answer</label>
+                <input type="file" id="pdfURL" accept="image/*,application/pdf" multiple>
+            </div>
+           
+             <!-- Hidden Field for Firebase Key -->
+    <input type="hidden" id="bookKey">
+            <!-- Submit Button -->
+            <div class="inputBox">
+                <button type="submit" id="submitBtn">Submit</button>
+                <!-- Loading Spinner -->
+                <div id="loadingSpinner" class="spinner" style="display: none;">Submitting...</div>
+                <button type="button" id="updateBtn">Update</button>
+                <button type="button" id="deleteBtn">Delete</button>
+                <button id="addNewBtn" type="button" class="btn btn-primary">Add New</button>
+                <input type="text" id="searchInput" placeholder="Search by Book Name">
+                <!--button type="button" id="searchBtn">Search</button--->
+
+            </div>
+        </form>
+
+        <!-- Success Alert -->
+        <div class="alert">Your message has been sent!</div>
+
+        <!-- Table to display uploaded data -->
+        <div class="table-container">
+            <h2>Uploaded Book Data</h2>
+            <table id="bookDataTable">
+                <thead>
+                    <tr>
+                        <th>Doc Type</th>
+                        <th>Doc Number</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Subject</th>
+                        <th>Start Date</th>
+                        <th>Start Time</th>
+                        <th>Stop Date</th>
+                        <th>Stop Time</th>
+                        <th>Question</th>
+                        <th>Answer</th>
+                    </tr>
+                </thead>
+                <tbody id="bookDataBody">
+                    <!-- Data rows will be appended here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="./mail.js"></script>
+</body>
+
+</html>

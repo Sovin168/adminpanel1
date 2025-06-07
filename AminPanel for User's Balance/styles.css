@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    width: 100%;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.inputBox {
+    width: 100%;
+    margin: 10px 0;
+}
+.inputBox label{
+    width: 20%;
+}
+.inputBox input,
+.inputBox select,
+.inputBox textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.inputBox textarea {
+    height: 120px;
+}
+
+.inputBox input[type="file"] {
+    padding: 0;
+}
+
+.inputBox button {
+    width: 50%;
+    padding: 12px;
+    font-size: 18px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* Add a highlight class with blue background */
+.highlight {
+    background-color: #cce4ff; /* Light blue background */
+    transition: background-color 0.3s ease;
+  }
+  
+.spinner {
+    font-size: 16px;
+    color: #0077ff;
+    font-weight: bold;
+    margin-top: 10px;
+    display: none; /* Hidden by default */
+}
+
+.inputBox button:hover {
+    background-color: #0056b3;
+    transition: background-color 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #007bff;
+}
+
+.alert {
+    width: 100%;
+    background: #28a745;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    display: none;
+}
+.table-container {
+    max-height: 400px; /* Adjust height to fit your design */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+table th,
+table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-size: 16px;
+}
+
+table td {
+    font-size: 14px;
+    color: #555;
+}
+
+table a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+table a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    table {
+        font-size: 12px;
+    }
+}
+
+/* Style the buttons */
+.inputBox button {
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    background-color: rgb(0, 119, 255);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.inputBox button:hover {
+    background-color: rgb(0, 17, 255);
+    transition: all 0.3s ease;
+}
+
+.inputBox input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+.inputBox input[type="text"]:focus {
+    outline: none;
+    border-color: #0077ff;
+}
+
+/* Add some space between buttons */
+.inputBox {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+

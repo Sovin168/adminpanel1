@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details Form</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Form Section -->
+        <form action="" id="bookForm">
+            <!-- Book Name -->
+            <div class="inputBox">
+                <label for="companyName">Company Name</label>
+                <input type="text" id="companyName" placeholder="Enter book name" required>
+            </div>
+
+            <!-- Category Dropdown -->
+            <div class="inputBox">
+                <label for="category">Category</label>
+                <select id="category">
+                    <option value="" disabled selected>Choose a Category</option>
+                    <option value="Banner Homepage">Banner Homepage</option>
+                    <option value="Banner Drawer">Banner Drawer</option>
+                    <option value="Banner Bottom">Banner Bottom</option>
+                </select>
+            </div>
+
+            <!-- Book Description -->
+            <div class="inputBox">
+                <label for="bannerDescription">Book Description</label>
+                <textarea id="bannerDescription" rows="5" placeholder="Enter book description" ></textarea>
+            </div>
+
+            <!-- Upload Image -->
+            <div class="inputBox">
+                <label for="uploadImage">Upload Image</label>
+                <input type="file" id="uploadImage" accept="image/*">
+            </div>
+            <!-- Upload Audio/Video -->
+            <div class="inputBox">
+                <label for="uploadMedia">Upload Audio/Video</label>
+                <input type="file" id="uploadMedia" accept="audio/*,video/*">
+            </div>
+             <!-- Hidden Field for Firebase Key -->
+    <input type="hidden" id="bookKey">
+            <!-- Submit Button -->
+            <div class="inputBox">
+                <button type="submit" id="submitBtn">Submit</button>
+                <!-- Loading Spinner -->
+                <div id="loadingSpinner" class="spinner" style="display: none;">Submitting...</div>
+                <button type="button" id="updateBtn">Update</button>
+                <button type="button" id="deleteBtn">Delete</button>
+                <button id="addNewBtn" type="button" class="btn btn-primary">Add New</button>
+                <input type="text" id="searchInput" placeholder="Search by Book Name">
+                <button type="button" id="searchBtn">Search</button>
+
+            </div>
+        </form>
+
+        <!-- Success Alert -->
+        <div class="alert">Your message has been sent!</div>
+
+        <!-- Table to display uploaded data -->
+        <div class="table-container">
+            <h2>Uploaded Book Data</h2>
+            <table id="bookDataTable">
+                <thead>
+                    <tr>
+                        <th>Company Name</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Image</th>
+                        <th>Media</th>
+                    </tr>
+                </thead>
+                <tbody id="bookDataBody">
+                    <!-- Data rows will be appended here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="./mail.js"></script>
+</body>
+
+</html>

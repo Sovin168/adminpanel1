@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details Form</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Form Section -->
+        <form action="" id="bookForm">
+            <!-- Last name -->
+            <div class="inputBox">
+                <label for="lastname">Last name</label>
+                <input type="text" id="lastname" placeholder="Enter last name" required>
+            </div>
+
+            <!-- Last name -->
+            <div class="inputBox">
+                <label for="firstname">First name</label>
+                <input type="text" id="firstname" placeholder="Enter first name" required>
+            </div>
+
+            <!-- Last name -->
+            <div class="inputBox">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter email" required>
+            </div>
+
+            <!-- Last name -->
+            <div class="inputBox">
+                <label for="balance">User balance</label>
+                <input type="number" id="balance" placeholder="Enter book name" required>
+            </div>
+
+             <!-- Hidden Field for Firebase Key -->
+    <input type="hidden" id="bookKey">
+            <!-- Submit Button -->
+            <div class="inputBox">
+                <button type="submit" id="submitBtn">Submit</button>
+                <!-- Loading Spinner -->
+                <div id="loadingSpinner" class="spinner" style="display: none;">Submitting...</div>
+                <button type="button" id="updateBtn">Update</button>
+                <button type="button" id="deleteBtn">Delete</button>
+                <button id="addNewBtn" type="button" class="btn btn-primary">Add New</button>
+                <input type="text" id="searchInput" placeholder="Search by Book Name">
+                <button type="button" id="searchBtn">Search</button>
+
+            </div>
+        </form>
+
+        <!-- Success Alert -->
+        <div class="alert">Your message has been sent!</div>
+
+        <!-- Table to display uploaded data -->
+        <div class="table-container">
+            <h2>Uploaded Book Data</h2>
+            <table id="bookDataTable">
+                <thead>
+                    <tr>
+                        <th>Last name</th>
+                        <th>First name</th>
+                        <th>Email</th>
+                        <th>User balance</th>
+                    </tr>
+                </thead>
+                <tbody id="bookDataBody">
+                    <!-- Data rows will be appended here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="./mail.js"></script>
+</body>
+
+</html>
