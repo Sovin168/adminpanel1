@@ -187,7 +187,7 @@ function addRowClickEvent(row, book, bookId) {
         document.getElementById('subCategory').value = book.subCategory || '';
         document.getElementById('bookDescription').value = book.bookDescription || '';
         document.getElementById('bookAuthor').value = book.bookAuthor || '';
-        document.getElementById('language').value = book.bookAuthor || '';
+        document.getElementById('language').value = book.language || '';
         document.getElementById('bookPublicDate').value = book.bookPublicDate || '';
         document.getElementById('bookRate').value = book.bookRate || '';
         document.getElementById('bookStatue').value = book.bookStatue || '';
